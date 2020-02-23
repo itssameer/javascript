@@ -100,3 +100,19 @@ console.log(john["lastName"]);
 var jane = new Object();
 jane.firstName = "jane";
 console.log(jane);
+
+/*************************************
+ * objects and methods
+ */
+var john = {
+  firstName: "john",
+  lastName: "Bhol",
+  dbo: 1990,
+  family: ["jane", "mark", "bob"],
+  job: "manager",
+  calcAge: function() {
+    this.age = 2020 - this.dbo;
+  }
+};
+john.calcAge();
+console.log(john);
