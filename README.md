@@ -1,2 +1,2 @@
-This is the project for javascript.
+This is the project for learning javascript.
 hello world
