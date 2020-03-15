@@ -44,10 +44,41 @@ var year = new Array(1990,1991,1989) // method 2
 
 console.log(names[0]);
 
-
+/*
 // Common array methods
 
 names.push('value') // O(1)
 names.pop() //O(1)
 names.shift() //O(N) delete at teh beginning
 names.unshift('value')//O(N) add at the beginning
+*/
+
+/***********************************************
+ * Objects
+ */
+
+ var john ={
+     firstName:'john',
+     lastName:'smith',
+     birthYear:1990,
+     family:['jane','Mark','Bob'],
+     job:'teacher',
+     isMarried:'false',
+     calcAge: function(){
+        this.age = 2020 - this.birthYear
+     }
+ }
+
+ console.log(john.firstName)
+ console.log(john['lastName']);
+ john.calcAge();
+ console.log(john['age']);
+
+ /********************************************
+  * Loops
+  */
+
+  for(let i=0;i<=10;i++){
+      
+  }
+ 
