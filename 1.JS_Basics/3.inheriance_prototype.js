@@ -107,3 +107,64 @@ var eligible = arryCalc(ages,fullAge)
 console.log(eligible);
 
 console.log(ages);
+
+//Function returning function
+function interviewQuestion(job){
+    if(job === 'teacher'){
+        return function(name){
+            console.log(`Hello ${name} can you speak english`);
+            
+        }
+    }
+}
+
+// interviewQuestion("teacher")("sameer")
+
+//IIFE
+//it create its own private scope.
+
+(function () {
+    var score = Math.random() * 10;
+   console.log(score >= 5)
+})()
+
+
+//Closures
+// This the ability to access the variables of outer function even it has returned.
+//ex:
+
+function retirementAge(age){
+    var a = ' Year to retire'
+    return function (yob){
+        var ageLeft = age - (2020 - yob)
+        console.log('You have ' + ageLeft + ' more ' + a);
+        
+    }
+}
+
+retirementAge(65)(1993)
+
+//Bind call and apply.
+
+var John = {
+    name:'Sameer',
+    displayMyname: function(){
+        console.log(this.name)
+    }
+}
+
+var Emily = {
+    name:'Emily'
+}
+
+John.displayMyname() // OP: Sameer
+//Method Borrowing with call
+John.displayMyname.call(Emily) // OP: Emily
+
+//bind method same as call but it generates the copy of method
+//This is call method Carrying 
+// bind doesn't call method immediately so this can be used in callback functions for presetting the arguement 
+
+var name  = John.displayMyname.bind(Emily)
+
+name() //Emily
