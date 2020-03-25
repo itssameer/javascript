@@ -81,11 +81,32 @@ var budgetController = (function() {
         percentage: data.percentage
       }
     },
+    deleteItem:function(type,id){
+      var ids = data.allItems[type].map(function(current){
+        return current.id
+      });
+      var index =  ids.indexOf(id)
+
+      if(index !== -1){
+        data.allItems[type].splice(index,1)
+      }
+
+    },
     forTest: function(){
       return data;
     }
   };
 })();
+
+
+
+
+
+
+
+
+
+// ------------UIController--------------------------------------------------------------------
 
 var UIController = (function() {
   var DOMStrings = {
@@ -137,6 +158,11 @@ var UIController = (function() {
       //Insert Replaced HTML into the DOM
       document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
     },
+    deleteListItem:function(selectorId){
+      var el = document.getElementById(selectorId)
+      el.parentNode.removeChild(el)
+
+    },
     clearFields: function() {
       var fields, fieldArr;
       fields = document.querySelectorAll(
@@ -164,6 +190,16 @@ var UIController = (function() {
   };
 })();
 
+
+
+
+
+
+
+
+//------------------------Master Controller ------------------------------
+
+
 var masterController = (function(bc, uc) {
   var setupEventListener = function() {
     var DOM = uc.getDOMStrings();
@@ -181,7 +217,7 @@ var masterController = (function(bc, uc) {
   var updateBudget = function(){
     bc.budgetCal();
     var budget = bc.getBudget()
-    console.log(budget);
+    uc.displayBudget(budget)
     
   }
 
@@ -207,13 +243,19 @@ var masterController = (function(bc, uc) {
   };
   var ctrlDeleteItem = function(event){
     var item,splitItem,type,id;
+    item = event.target.parentNode.parentNode.parentNode.parentNode.id
     if(item){
-
-      item = event.target.parentNode.parentNode.parentNode.parentNode.id
       splitItem = item.split('-')
       type = splitItem[0]
-      id = splitItem[1]
+      id = splitItem[1]*1
     }
+
+    //Delete item from Data
+    bc.deleteItem(type,id);
+    //Delete from UI
+    uc.deleteListItem(item);
+    //Update the Data
+    updateBudget();
 
     
   }
