@@ -14,19 +14,19 @@ Basics of browers , V8 engines, Interpreted v/s compiled language, garbase colle
 
 ## V8 engine and Interpreted language
 
-Javascript is a interpreted language and chrome and mircrosft edge uses the v8 engine in their browsers
+Javascript is a interpreted language and chrome and microsoft edge uses the v8 engine in their browsers
 
 - Brendan Eich is the person created the Javascript language
 - AST explorer -> astexplorer.net to see how Javascript code is converted to tree like structure(Json) for parsers to parse.
-- Javascript is first converted into AST into Interpreter then it is Compiled i.e HLL is converted to optimised code using JIT compiler for better performance.
+- Javascript is first converted into AST into Interpreter then it is Compiled i.e HLL is converted to optimized code using JIT compiler for better performance.
 
 ### Avoid this while writing Optimised code
 
-- eval() function is not good for optimised code and also not secure.
+- eval() function is not good for optimized code and also not secure.
 - arguments , this is a predefined var to access the arguments of a function.
 - for in, this loop is used to loop the object properties.
 - with, it is not recommended use
-- delete, used on a property of an object to delete alternative is filter or spred oparator.
+- delete, used on a property of an object to delete alternative is filter or spread operator.
 - Hidden classes : order of operation on a object can effect the performance
 - Inline caching : if a function results in same value compiler make cache the value.
 
