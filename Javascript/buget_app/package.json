@@ -10,6 +10,6 @@
   "author": "Sameer",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.22"
   }
 }
